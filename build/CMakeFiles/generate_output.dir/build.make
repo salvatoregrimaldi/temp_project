@@ -62,7 +62,7 @@ CMakeFiles/generate_output: eseguibileSeqO1
 CMakeFiles/generate_output: eseguibileSeqO2
 CMakeFiles/generate_output: eseguibileSeqO3
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Inizio Misure"
-	../file.bash /home/asdrubale/temp_project/build /home/asdrubale/temp_project
+	../measure/file.bash /home/asdrubale/temp_project/build /home/asdrubale/temp_project
 
 generate_output: CMakeFiles/generate_output
 generate_output: CMakeFiles/generate_output.dir/build.make

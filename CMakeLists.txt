@@ -70,7 +70,7 @@ target_compile_options(eseguibileSeqO3 PRIVATE -O3) #ottimizzazioni sequenziale 
 
 add_custom_target(
     generate_output
-    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/file.bash ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/measure/file.bash ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
     COMMENT "Inizio Misure"
     DEPENDS	
 		eseguibileO0
@@ -96,9 +96,9 @@ add_custom_target(
 
 add_custom_target(
     extract_measures
-    COMMAND PIPENV_PIPFILE=${CMAKE_CURRENT_SOURCE_DIR}/Pipfile ${PipEnv} run python ${CMAKE_CURRENT_SOURCE_DIR}/estrai.py
-    COMMENT "Generating version header [${PipEnv} run python ${CMAKE_CURRENT_SOURCE_DIR}/measures/extract.py]"
+    COMMAND PIPENV_PIPFILE=${CMAKE_CURRENT_SOURCE_DIR}/Pipfile ${PipEnv} run python ${CMAKE_CURRENT_SOURCE_DIR}/measure/extract.py
+    COMMENT "Generating version header [${PipEnv} run python ${CMAKE_CURRENT_SOURCE_DIR}/measure/extract.py]"
     DEPENDS	
 		install_pipenv
-		${CMAKE_CURRENT_SOURCE_DIR}/estrai.py
+		${CMAKE_CURRENT_SOURCE_DIR}/measure/extract.py
 )

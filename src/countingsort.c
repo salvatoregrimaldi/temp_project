@@ -37,7 +37,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
-#include "countingsort.h"
+#include "../include/countingsort.h"
 
 /**
  * @brief This function initialize randomly the array 'full_array' distributing the computation among the processes.
@@ -87,12 +87,6 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
     free(displ);
     free(piece_init_vect);
 }
-
-
-
-
-
-
 
 /**
  * @brief This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation among the processes.
@@ -176,7 +170,7 @@ void countingSort(int n, int n_ranks, int rank, int *full_array)
     MPI_Reduce(c_local, c, lenC, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
     free(c_local);
     /*-----------------------------------------------------------------------------------------------------*/
-    
+
     if (rank == 0)
     {
         int p;

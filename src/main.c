@@ -37,7 +37,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include "countingsort.h"
+#include "../include/countingsort.h"
 
 int main(int argc, char *argv[])
 {
@@ -76,10 +76,10 @@ int main(int argc, char *argv[])
     {
         time_init = MPI_Wtime() - read_start_time;
 
-        //Print initial array
+        /*Print initial array
         for (int i = 0; i < n; i++)
             printf("%d ", full_array[i]);
-        printf("\n\n");
+        printf("\n\n");*/
 
         read_start_time = MPI_Wtime();
     }
@@ -90,10 +90,10 @@ int main(int argc, char *argv[])
     if (rank == 0)
     {
 
-        //Print sorted array
+        /*Print sorted array
         for (int i = 0; i < n; i++)
             printf("%d ", full_array[i]);
-        printf("\n\n");
+        printf("\n\n");*/
 
         time_count = MPI_Wtime() - read_start_time;
         printf("%d;%f;%f\n", n_ranks, time_init, time_count);

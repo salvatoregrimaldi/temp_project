@@ -53,9 +53,9 @@ CMAKE_BINARY_DIR = /home/asdrubale/temp_project/build
 # Include the progress variables for this target.
 include CMakeFiles/extract_measures.dir/progress.make
 
-CMakeFiles/extract_measures: ../estrai.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating version header [/usr/bin/pipenv run python /home/asdrubale/temp_project/measures/extract.py]"
-	PIPENV_PIPFILE=/home/asdrubale/temp_project/Pipfile /usr/bin/pipenv run python /home/asdrubale/temp_project/estrai.py
+CMakeFiles/extract_measures: ../measure/extract.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating version header [/usr/bin/pipenv run python /home/asdrubale/temp_project/measure/extract.py]"
+	PIPENV_PIPFILE=/home/asdrubale/temp_project/Pipfile /usr/bin/pipenv run python /home/asdrubale/temp_project/measure/extract.py
 
 extract_measures: CMakeFiles/extract_measures
 extract_measures: CMakeFiles/extract_measures.dir/build.make

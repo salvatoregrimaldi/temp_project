@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/countingsort.h
+/home/asdrubale/temp_project/include/countingsort.h
 
 /home/asdrubale/temp_project/src/countingsort.c
 mpi.h
@@ -17,8 +17,8 @@ stdio.h
 -
 limits.h
 -
-countingsort.h
-/home/asdrubale/temp_project/src/countingsort.h
+../include/countingsort.h
+/home/asdrubale/temp_project/include/countingsort.h
 
 /home/asdrubale/temp_project/src/main.c
 mpi.h
@@ -29,8 +29,8 @@ stdio.h
 -
 time.h
 -
-countingsort.h
-/home/asdrubale/temp_project/src/countingsort.h
+../include/countingsort.h
+/home/asdrubale/temp_project/include/countingsort.h
 
 /usr/include/x86_64-linux-gnu/mpich/mpi.h
 stddef.h
