@@ -47,10 +47,10 @@ int main(int argc, char *argv[]){
     if(rank==0){
         time_init = MPI_Wtime() - read_start_time;
 
-        /*Stampa vettore iniziale
+        //Stampa vettore iniziale
         for(int i=0; i<n; i++)
             printf("%d ",full_vector[i]);
-        printf("\n\n");*/
+        printf("\n\n");
 
         read_start_time = MPI_Wtime();
     }
@@ -61,10 +61,10 @@ int main(int argc, char *argv[]){
 
     if(rank == 0){
 
-        /*Stampa vettore finale
+        //Stampa vettore finale
         for (int i = 0; i < n; i++)
             printf("%d ", full_vector[i]);
-        printf("\n\n");*/
+        printf("\n\n");
 
         time_count = MPI_Wtime() - read_start_time;
         printf("%d;%f;%f\n", n_ranks, time_init, time_count);
