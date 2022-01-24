@@ -1,0 +1,13 @@
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/extract_measures.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/generate_output.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileSeqO3.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileSeqO2.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileSeqO1.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileSeqO0.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO3.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO2.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/install_pipenv.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO1.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO0.dir
