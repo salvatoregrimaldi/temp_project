@@ -1,1 +1,0 @@
-/usr/bin/cc   -Wl,-Bsymbolic-functions CMakeFiles/eseguibileO1.dir/src/main.c.o CMakeFiles/eseguibileO1.dir/src/countingsort.c.o  -o eseguibileO1  /usr/lib/x86_64-linux-gnu/libmpich.so 

@@ -1,1 +1,0 @@
-/usr/bin/cc    CMakeFiles/eseguibileSeqO2.dir/src/mainS.c.o  -o eseguibileSeqO2 
