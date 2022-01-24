@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/mnt/c/Users/Salvatore/Desktop/temp_project/src/mainS.c" "/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileSeqO1.dir/src/mainS.c.o"
+  "/home/asdrubale/temp_project/src/mainS.c" "/home/asdrubale/temp_project/build/CMakeFiles/eseguibileSeqO1.dir/src/mainS.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

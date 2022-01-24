@@ -6,5 +6,5 @@ C_FLAGS =   -O2
 
 C_DEFINES = 
 
-C_INCLUDES = -I/mnt/c/Users/Salvatore/Desktop/temp_project/include -isystem /usr/include/x86_64-linux-gnu/mpich 
+C_INCLUDES = -I/home/asdrubale/temp_project/include -isystem /usr/include/x86_64-linux-gnu/mpich 
 

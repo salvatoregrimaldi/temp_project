@@ -8,7 +8,7 @@
 
 ../include/countingsort.h
 
-/mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.c
+/home/asdrubale/temp_project/src/countingsort.c
 mpi.h
 -
 stdlib.h
@@ -18,9 +18,9 @@ stdio.h
 limits.h
 -
 countingsort.h
-/mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.h
+/home/asdrubale/temp_project/src/countingsort.h
 
-/mnt/c/Users/Salvatore/Desktop/temp_project/src/main.c
+/home/asdrubale/temp_project/src/main.c
 mpi.h
 -
 stdlib.h
@@ -30,7 +30,7 @@ stdio.h
 time.h
 -
 countingsort.h
-/mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.h
+/home/asdrubale/temp_project/src/countingsort.h
 
 /usr/include/x86_64-linux-gnu/mpich/mpi.h
 stddef.h

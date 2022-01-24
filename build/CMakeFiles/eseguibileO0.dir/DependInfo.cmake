@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.c" "/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO0.dir/src/countingsort.c.o"
-  "/mnt/c/Users/Salvatore/Desktop/temp_project/src/main.c" "/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO0.dir/src/main.c.o"
+  "/home/asdrubale/temp_project/src/countingsort.c" "/home/asdrubale/temp_project/build/CMakeFiles/eseguibileO0.dir/src/countingsort.c.o"
+  "/home/asdrubale/temp_project/src/main.c" "/home/asdrubale/temp_project/build/CMakeFiles/eseguibileO0.dir/src/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

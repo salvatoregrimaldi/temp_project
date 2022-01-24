@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Salvatore/Desktop/temp_project/src/mainS.c
+/home/asdrubale/temp_project/src/mainS.c
 stdlib.h
 -
 stdio.h
@@ -16,5 +16,7 @@ unistd.h
 time.h
 -
 sys/times.h
+-
+limits.h
 -
 

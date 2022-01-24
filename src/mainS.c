@@ -1,11 +1,47 @@
+/* 
+ * Course: High Performance Computing 2021/2022
+ * 
+ * Lecturer: Francesco Moscato	fmoscato@unisa.it
+ *
+ * Group:
+ * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
+ * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
+ * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
+ * 
+ * 
+ * Copyright (C) 2021 - All Rights Reserved 
+ *
+ * This file is part of Contest-MPI.
+ *
+ * Contest-MPI is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Contest-MPI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Contest-MPI.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+  @file mainS.c
+  @brief This is the file mainS.c, which is the sequential main function that calls the other functions
+  @copyright Copyright (c) 2021
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
 #include <sys/times.h>
+#include <limits.h>
 
-int *initArray(int N, int range);
-void countingSort(int *A, int n);
+void init(int n, int range, int *full_array);
+void countingSort(int n, int *full_array);
 
 #define STARTTIME(id)                             \
     clock_t start_time_42_##id, end_time_42_##id; \
@@ -15,133 +51,111 @@ void countingSort(int *A, int n);
     end_time_42_##id = clock(); \
     x = ((double)(end_time_42_##id - start_time_42_##id)) / CLOCKS_PER_SEC
 
-long val;
-
 int main(int argc, char *argv[])
 {
 
-    // Parse parameters
-    if(argc != 3){
-        printf("you must insert the length of array to order and the interval\n");
+    if (argc != 3)
+    {
+        printf("ERROR! YOU MUST INSERT ARRAY LENGTH AND THE MAXIMUM ACCEPTABLE INTEGER\n");
         exit(EXIT_FAILURE);
     }
 
-
     srand(time(NULL));
-    long n;
-    double time_init=0, time_count=0;
-    n = atoi(argv[1]);   //array langth
-    val = atoi(argv[2]); //max value of element in array
-
-
-    int *A;
+    int n, range;
+    int *full_array;
+    double time_init = 0, time_count = 0;
+    n = atoi(argv[1]);     //array length
+    range = atoi(argv[2]); //maximum acceptable integer
 
     /*
     for(int i=0; i<n; i++)
-        printf("%d ",A[i]);
+        printf("%d ",full_array[i]);
     printf("\n");*/
 
     STARTTIME(0);
 
-    A = initArray(n, val);
+    full_array = (int *)malloc(n * sizeof(int)); //allocation of space needed for the array
+
+    init(n, range, full_array);
 
     ENDTIME(0, time_init);
-    
+
     /*
     for(int i=0; i<n; i++)
-        printf("%d ",A[i]);
+        printf("%d ",full_array[i]);
     printf("\n");*/
-
 
     STARTTIME(1);
 
-    countingSort(A, n);
+    countingSort(n, full_array);
 
     ENDTIME(1, time_count);
 
-
     printf("1;%f;%f\n", time_init, time_count);
     /*for(int i=0; i<n; i++)
-        printf("%d ",A[i]);*/
+        printf("%d ",full_array[i]);*/
 
-    free(A);
-
+    free(full_array);
 
     return 0;
 }
 
 /**
- * @brief initArray is a function that make it used to initialize a random array
- * 
- * @param N id the dim of array 
- * @param range is the max num of array
- * @return int* array initialized
+ * @brief This function initialize randomly the array 'full_array'.
+ * @param n             number of array elements.
+ * @param range         maximum acceptable integer.
+ * @param full_array    pointer to the array.
  */
-int *initArray(int N, int range){
-    int *A;
-    if ((A = malloc(N * sizeof(int))) == NULL)
-        exit(1);
-
-
-    for (int i = 0; i < N; i++)
-        A[i] = rand() % range;
-    
-    return A;
+void init(int n, int range, int *full_array)
+{
+    for (int i = 0; i < n; i++)
+        full_array[i] = rand() % range;
 }
 
 /**
- * @brief countingSort is the fnction that order the array A using the counting sort algorithm
- * 
- * @param A is the array
- * @param n is the dim of array A
+ * @brief This function sorts the array 'full_array' using Counting Sort Algorithm.
+ * @param n             number of array elements.
+ * @param full_array    pointer to the unsorted array.
  */
-void countingSort(int *A, int n)
+void countingSort(int n, int *full_array)
 {
-
-    /*
-    for(int i = 0; i < myDim; i++)
-        printf("io sono %d: %d\n", rank, Rcv[i]);*/
-
-    int local_min = A[0];
-    int local_max = A[0];
-
-    for(int i = 0; i < n; i++)
-        if (A[i] > local_max)
-            local_max = A[i];
-        else if (A[i] < local_min)
-            local_min = A[i];
-
-    int *C_local;
-    int lenC_local = local_max - local_min + 1;
-    if ((C_local = malloc(lenC_local * sizeof(int))) == NULL)
-        exit(1);
-
-    for (int i = 0; i < lenC_local; i++)
-        C_local[i] = 0;
+    int min = INT_MAX;
+    int max = INT_MIN;
 
     for (int i = 0; i < n; i++)
-        C_local[A[i] - local_min] += 1; 
+        if (full_array[i] > max)
+            max = full_array[i];
+        else if (full_array[i] < min)
+            min = full_array[i];
 
-    for (int i = 1; i < lenC_local; i++)
-        C_local[i] += C_local[i - 1];
-    
+    int *c;
+    int lenC = max - min + 1;
+    if ((c = malloc(lenC * sizeof(int))) == NULL)
+        exit(1);
+
+    for (int i = 0; i < lenC; i++)
+        c[i] = 0;
+
+    for (int i = 0; i < n; i++)
+        c[full_array[i] - min] += 1;
+
+    for (int i = 1; i < lenC; i++)
+        c[i] += c[i - 1];
 
     int p;
 
-
-    for (int j = 0; j < lenC_local; j++)
+    for (int j = 0; j < lenC; j++)
     {
         if (j == 0)
             p = 0;
         else
-            p = C_local[j - 1];
+            p = c[j - 1];
 
-        for (int x = p; x < C_local[j]; x++)
+        for (int x = p; x < c[j]; x++)
         {
-            A[x] = j + local_min;
+            full_array[x] = j + min;
         }
     }
 
-    free(C_local);
-
+    free(c);
 }

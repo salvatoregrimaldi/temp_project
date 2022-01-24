@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project
+CMAKE_SOURCE_DIR = /home/asdrubale/temp_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project/build
+CMAKE_BINARY_DIR = /home/asdrubale/temp_project/build
 
 # Utility rule file for install_pipenv.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project/build
 include CMakeFiles/install_pipenv.dir/progress.make
 
 CMakeFiles/install_pipenv: ../Pipfile.lock
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Installing pipenv dependencies [/usr/bin/pipenv install]"
-	PIPENV_PIPFILE=/mnt/c/Users/Salvatore/Desktop/temp_project/Pipfile /usr/bin/pipenv install --ignore-pipfile
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Installing pipenv dependencies [/usr/bin/pipenv install]"
+	PIPENV_PIPFILE=/home/asdrubale/temp_project/Pipfile /usr/bin/pipenv install --ignore-pipfile
 
 install_pipenv: CMakeFiles/install_pipenv
 install_pipenv: CMakeFiles/install_pipenv.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/install_pipenv.dir/clean:
 .PHONY : CMakeFiles/install_pipenv.dir/clean
 
 CMakeFiles/install_pipenv.dir/depend:
-	cd /mnt/c/Users/Salvatore/Desktop/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/install_pipenv.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/asdrubale/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/asdrubale/temp_project /home/asdrubale/temp_project /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build/CMakeFiles/install_pipenv.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/install_pipenv.dir/depend
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project
+CMAKE_SOURCE_DIR = /home/asdrubale/temp_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project/build
+CMAKE_BINARY_DIR = /home/asdrubale/temp_project/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/eseguibileO2.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/eseguibileO2.dir/flags.make
 
 CMakeFiles/eseguibileO2.dir/src/main.c.o: CMakeFiles/eseguibileO2.dir/flags.make
 CMakeFiles/eseguibileO2.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/eseguibileO2.dir/src/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/eseguibileO2.dir/src/main.c.o   -c /mnt/c/Users/Salvatore/Desktop/temp_project/src/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/eseguibileO2.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/eseguibileO2.dir/src/main.c.o   -c /home/asdrubale/temp_project/src/main.c
 
 CMakeFiles/eseguibileO2.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/eseguibileO2.dir/src/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/Salvatore/Desktop/temp_project/src/main.c > CMakeFiles/eseguibileO2.dir/src/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/asdrubale/temp_project/src/main.c > CMakeFiles/eseguibileO2.dir/src/main.c.i
 
 CMakeFiles/eseguibileO2.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/eseguibileO2.dir/src/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Salvatore/Desktop/temp_project/src/main.c -o CMakeFiles/eseguibileO2.dir/src/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/asdrubale/temp_project/src/main.c -o CMakeFiles/eseguibileO2.dir/src/main.c.s
 
 CMakeFiles/eseguibileO2.dir/src/countingsort.c.o: CMakeFiles/eseguibileO2.dir/flags.make
 CMakeFiles/eseguibileO2.dir/src/countingsort.c.o: ../src/countingsort.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/eseguibileO2.dir/src/countingsort.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/eseguibileO2.dir/src/countingsort.c.o   -c /mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/eseguibileO2.dir/src/countingsort.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/eseguibileO2.dir/src/countingsort.c.o   -c /home/asdrubale/temp_project/src/countingsort.c
 
 CMakeFiles/eseguibileO2.dir/src/countingsort.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/eseguibileO2.dir/src/countingsort.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.c > CMakeFiles/eseguibileO2.dir/src/countingsort.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/asdrubale/temp_project/src/countingsort.c > CMakeFiles/eseguibileO2.dir/src/countingsort.c.i
 
 CMakeFiles/eseguibileO2.dir/src/countingsort.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/eseguibileO2.dir/src/countingsort.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/Salvatore/Desktop/temp_project/src/countingsort.c -o CMakeFiles/eseguibileO2.dir/src/countingsort.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/asdrubale/temp_project/src/countingsort.c -o CMakeFiles/eseguibileO2.dir/src/countingsort.c.s
 
 # Object files for target eseguibileO2
 eseguibileO2_OBJECTS = \
@@ -96,7 +96,7 @@ eseguibileO2: CMakeFiles/eseguibileO2.dir/src/countingsort.c.o
 eseguibileO2: CMakeFiles/eseguibileO2.dir/build.make
 eseguibileO2: /usr/lib/x86_64-linux-gnu/libmpich.so
 eseguibileO2: CMakeFiles/eseguibileO2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable eseguibileO2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable eseguibileO2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/eseguibileO2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -109,6 +109,6 @@ CMakeFiles/eseguibileO2.dir/clean:
 .PHONY : CMakeFiles/eseguibileO2.dir/clean
 
 CMakeFiles/eseguibileO2.dir/depend:
-	cd /mnt/c/Users/Salvatore/Desktop/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/eseguibileO2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/asdrubale/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/asdrubale/temp_project /home/asdrubale/temp_project /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build/CMakeFiles/eseguibileO2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/eseguibileO2.dir/depend
 

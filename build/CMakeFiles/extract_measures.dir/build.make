@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project
+CMAKE_SOURCE_DIR = /home/asdrubale/temp_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project/build
+CMAKE_BINARY_DIR = /home/asdrubale/temp_project/build
 
 # Utility rule file for extract_measures.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project/build
 include CMakeFiles/extract_measures.dir/progress.make
 
 CMakeFiles/extract_measures: ../estrai.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating version header [/usr/bin/pipenv run python /mnt/c/Users/Salvatore/Desktop/temp_project/measures/extract.py]"
-	PIPENV_PIPFILE=/mnt/c/Users/Salvatore/Desktop/temp_project/Pipfile /usr/bin/pipenv run python /mnt/c/Users/Salvatore/Desktop/temp_project/estrai.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating version header [/usr/bin/pipenv run python /home/asdrubale/temp_project/measures/extract.py]"
+	PIPENV_PIPFILE=/home/asdrubale/temp_project/Pipfile /usr/bin/pipenv run python /home/asdrubale/temp_project/estrai.py
 
 extract_measures: CMakeFiles/extract_measures
 extract_measures: CMakeFiles/extract_measures.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/extract_measures.dir/clean:
 .PHONY : CMakeFiles/extract_measures.dir/clean
 
 CMakeFiles/extract_measures.dir/depend:
-	cd /mnt/c/Users/Salvatore/Desktop/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/extract_measures.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/asdrubale/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/asdrubale/temp_project /home/asdrubale/temp_project /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build/CMakeFiles/extract_measures.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/extract_measures.dir/depend
 

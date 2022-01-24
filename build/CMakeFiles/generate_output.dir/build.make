@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project
+CMAKE_SOURCE_DIR = /home/asdrubale/temp_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/Salvatore/Desktop/temp_project/build
+CMAKE_BINARY_DIR = /home/asdrubale/temp_project/build
 
 # Utility rule file for generate_output.
 
@@ -61,8 +61,8 @@ CMakeFiles/generate_output: eseguibileSeqO0
 CMakeFiles/generate_output: eseguibileSeqO1
 CMakeFiles/generate_output: eseguibileSeqO2
 CMakeFiles/generate_output: eseguibileSeqO3
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Inizio Misure"
-	../file.bash /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/asdrubale/temp_project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Inizio Misure"
+	../file.bash /home/asdrubale/temp_project/build /home/asdrubale/temp_project
 
 generate_output: CMakeFiles/generate_output
 generate_output: CMakeFiles/generate_output.dir/build.make
@@ -79,6 +79,6 @@ CMakeFiles/generate_output.dir/clean:
 .PHONY : CMakeFiles/generate_output.dir/clean
 
 CMakeFiles/generate_output.dir/depend:
-	cd /mnt/c/Users/Salvatore/Desktop/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build /mnt/c/Users/Salvatore/Desktop/temp_project/build/CMakeFiles/generate_output.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/asdrubale/temp_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/asdrubale/temp_project /home/asdrubale/temp_project /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build /home/asdrubale/temp_project/build/CMakeFiles/generate_output.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/generate_output.dir/depend
 
