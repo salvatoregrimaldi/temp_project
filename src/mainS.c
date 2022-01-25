@@ -29,7 +29,7 @@
 
 /**
   @file mainS.c
-  @brief This is the file mainS.c, which is the sequential main function that calls the other functions
+  @brief This is the file mainS.c, which contains the sequential main function and the function 'init' that calls the other functions
   @copyright Copyright (c) 2021
 */
 
