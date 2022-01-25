@@ -37,24 +37,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
-#include "../include/countingsort.h"
+#include <time.h>
 
 /**
- * @brief This function initialize randomly the array 'full_array' distributing the computation among the processes.
+ * @brief This function writes in the file 'file_name' 'n' integers distributing the computation among the processes.
  * @param n             number of array elements.
- * @param n_ranks       number of ranks.
  * @param rank          rank of the current process.
+ * @param n_ranks       number of ranks.
  * @param range         maximum acceptable integer.
- * @param full_array    pointer to the array.
+ * @param file_name     file name.
  */
-void init(int n, int n_ranks, int rank, int range, int *full_array)
+void init(int n, int rank, int n_ranks, int range, char* file_name)
 {
-    int *recvcounts;
-    int *displ;
-    int dim;
-    int *piece_init_array;
-    int i;
-
+    int dim, i;
+    MPI_File fh;
+    MPI_Offset disp;
+    int* piece_init_array;
     int quoz = n / n_ranks;
 
     if (rank >= 0 && rank < n_ranks - 1)
@@ -63,81 +61,89 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
     if (rank == n_ranks - 1)
         dim = quoz + n % n_ranks;
 
-    recvcounts = (int *)malloc(n_ranks * sizeof(int));
-    displ = (int *)malloc(n_ranks * sizeof(int));
-
-    for (i = 0; i < n_ranks; i++)
-    {
-        displ[i] = i * quoz;
-
-        if (i == n_ranks - 1)
-            recvcounts[i] = quoz + n % n_ranks;
-        else
-            recvcounts[i] = quoz;
-    }
-
     piece_init_array = (int *)malloc(dim * sizeof(int));
 
     for (i = 0; i < dim; i++)
         piece_init_array[i] = rand() % range;
 
-    MPI_Gatherv(piece_init_array, dim, MPI_INT, full_array, recvcounts, displ, MPI_INT, 0, MPI_COMM_WORLD);
+    for (i = 0; i < dim; i++)
+        printf("%d ", piece_init_array[i]);
 
-    free(recvcounts);
-    free(displ);
+    printf("\n");
+
+    // Delete, re-open file and write
+    MPI_File_delete(file_name, MPI_INFO_NULL);
+    MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_CREATE | MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
+
+    disp = rank * quoz * sizeof(int);
+    MPI_File_set_view(fh, disp, MPI_INT, MPI_INT, "native", MPI_INFO_NULL);
+    MPI_File_write(fh, piece_init_array, dim, MPI_INT, MPI_STATUS_IGNORE);
+
     free(piece_init_array);
+
+    MPI_File_close(&fh);
 }
 
 
 
-
-
 /**
- * @brief This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation among the processes.
+ * @brief This function sorts the integers in 'file_name' using Counting Sort Algorithm distributing the computation among the processes.
  * @param n             number of array elements.
  * @param n_ranks       number of ranks.
  * @param rank          rank of the current process.
- * @param full_array    pointer to the unsorted array.
+ * @param file_name     file name.
  */
-void countingSort(int n, int n_ranks, int rank, int *full_array)
+void countingSort(int n, int n_ranks, int rank, char* file_name)
 {
+    MPI_File fh;
+    int dim;
+    int quoz = n / n_ranks;
+    int *piece_of_array;
+    int disp;
+    int i;
     int local_min = INT_MAX;
     int local_max = INT_MIN;
     int min;
     int max;
-    int i;
-    int dim;
-    int quoz;
-    int *piece_of_array;
     int *c_local;
     int *c;
-    int *sendcounts;
-    int *displ;
+    int *full_array;
     int lenC;
 
-    quoz = n / n_ranks;
+    /*--------------------READING ARRAY FROM FILE------------------------------------------------------*/
 
-    if (rank >= 0 && rank < n_ranks - 1)
-        dim = quoz;
+    MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
 
-    if (rank == n_ranks - 1)
-        dim = quoz + n % n_ranks;
+    disp = rank * quoz * sizeof(int);
+    MPI_File_set_view(fh, disp, MPI_INT, MPI_INT, "native", MPI_INFO_NULL);
 
-    displ = (int *)malloc(n_ranks * sizeof(int));
-    sendcounts = (int *)malloc(n_ranks * sizeof(int));
-
-    for (i = 0; i < n_ranks; i++)
-    {
-        displ[i] = i * quoz;
-        if (i == n_ranks - 1)
-            sendcounts[i] = quoz + n % n_ranks;
-        else
-            sendcounts[i] = quoz;
+    if(rank == 0){
+        printf("\nLETTURA\n");
     }
 
-    piece_of_array = (int *)malloc(sendcounts[rank] * sizeof(int));
+    if (rank >= 0 && rank < n_ranks - 1)
+    {
+        dim = quoz;
+        //provare a mettere questa allocazione fuori dagli if
+        piece_of_array = (int *)malloc(dim * sizeof(int));
+        MPI_File_read(fh, piece_of_array, dim, MPI_INT, MPI_STATUS_IGNORE);
+    }
 
-    MPI_Scatterv(full_array, sendcounts, displ, MPI_INT, piece_of_array, sendcounts[rank], MPI_INT, 0, MPI_COMM_WORLD);
+    if (rank == n_ranks - 1)
+    {
+        dim = quoz + n % n_ranks;
+        piece_of_array = (int *)malloc(dim * sizeof(int));
+        MPI_File_read(fh, piece_of_array, dim, MPI_INT, MPI_STATUS_IGNORE);
+    }
+
+    for (i = 0; i < dim; i++)
+        {
+            printf("%d ", piece_of_array[i]);
+        }
+        printf("\n");
+    
+    /*----------------------------------------------------------------------------------------------------*/
+
 
     /*-------------------------------MIN E MAX-------------------------------------------------------------*/
     for (i = 0; i < dim; i++)
@@ -148,8 +154,13 @@ void countingSort(int n, int n_ranks, int rank, int *full_array)
             local_max = piece_of_array[i];
     }
 
+
     MPI_Allreduce(&local_min, &min, 1, MPI_INT, MPI_MIN, MPI_COMM_WORLD);
     MPI_Allreduce(&local_max, &max, 1, MPI_INT, MPI_MAX, MPI_COMM_WORLD);
+
+    if(rank == 0){
+        printf("min = %d, max = %d\n", min, max);
+    }
     /*-----------------------------------------------------------------------------------------------------*/
 
     /*-------------------------------COMPUTE C-------------------------------------------------------------*/
@@ -168,15 +179,16 @@ void countingSort(int n, int n_ranks, int rank, int *full_array)
         c = (int *)malloc(lenC * sizeof(int));
 
     free(piece_of_array);
-    free(sendcounts);
-    free(displ);
 
     MPI_Reduce(c_local, c, lenC, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
     free(c_local);
-    /*-----------------------------------------------------------------------------------------------------*/
+
+    /*----------------------------------------------------------------------*/
 
     if (rank == 0)
     {
+        full_array = (int *)malloc(n * sizeof(int));
+
         int p;
 
         for (int j = 0; j < lenC; j++)
@@ -192,5 +204,48 @@ void countingSort(int n, int n_ranks, int rank, int *full_array)
             }
         }
         free(c);
+
+        printf("full array:\n");
+        for(i=0; i<n; i++){
+            printf("%d ", full_array[i]);
+        }
+        printf("\n");
+
+        MPI_File_seek(fh, 0, MPI_SEEK_SET);
+        MPI_File_write(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
+        free(full_array);
+
     }
+
+
+    MPI_File_close(&fh);
+
+}
+
+
+
+
+
+/**
+ * @brief This function reads the integers in 'file_name' and prints them on stdout.
+ * @param file_name     file name.
+ * @param n             number of array elements.
+ * @param rank          rank of the current process.
+ */
+void readingFile(char* file_name, int n, int rank)
+{
+    int* full_array;
+    MPI_File fh;
+    MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
+
+    if (rank == 0)
+    {
+        full_array = (int *)malloc(n * sizeof(int));
+        MPI_File_read(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
+        for (int i = 0; i < n; i++)
+            printf("%d ", full_array[i]);
+        printf("\n");
+    }
+
+    MPI_File_close(&fh);
 }

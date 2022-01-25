@@ -1,15 +1,15 @@
-/* 
+/*
  * Course: High Performance Computing 2021/2022
- * 
+ *
  * Lecturer: Francesco Moscato	fmoscato@unisa.it
  *
  * Group:
- * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
+ * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it
  * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
  * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
- * 
- * 
- * Copyright (C) 2021 - All Rights Reserved 
+ *
+ *
+ * Copyright (C) 2021 - All Rights Reserved
  *
  * This file is part of Contest-MPI.
  *
@@ -29,7 +29,7 @@
 
 /**
   @file mainS.c
-  @brief This is the file mainS.c, which contains the sequential main function, the function 'init' and 'countingSort'
+  @brief This is the file mainS.c, which contains the sequential main function, the function 'init', 'countingSort' and 'readingFile'
   @copyright Copyright (c) 2021
 */
 
@@ -40,8 +40,9 @@
 #include <sys/times.h>
 #include <limits.h>
 
-void init(int n, int range, int *full_array);
-void countingSort(int n, int *full_array);
+void init(int n, int range, char *file_name);
+void countingSort(int n, char *file_name);
+void readingFile(char *file_name, int n);
 
 #define STARTTIME(id)                             \
     clock_t start_time_42_##id, end_time_42_##id; \
@@ -54,7 +55,7 @@ void countingSort(int n, int *full_array);
 int main(int argc, char *argv[])
 {
 
-    if (argc != 3)
+    if (argc != 4)
     {
         printf("ERROR! YOU MUST INSERT ARRAY LENGTH AND THE MAXIMUM ACCEPTABLE INTEGER\n");
         exit(EXIT_FAILURE);
@@ -62,60 +63,63 @@ int main(int argc, char *argv[])
 
     srand(time(NULL));
     int n, range;
-    int *full_array;
-    double time_init = 0, time_count = 0;
-    n = atoi(argv[1]);     //array length
-    range = atoi(argv[2]); //maximum acceptable integer
+    char *file_name;
 
-    /*
-    for(int i=0; i<n; i++)
-        printf("%d ",full_array[i]);
-    printf("\n");*/
+    double time_init = 0, time_count = 0;
+    n = atoi(argv[1]);     // array length
+    range = atoi(argv[2]); // maximum acceptable integer
+    file_name = argv[3];   // file name
 
     STARTTIME(0);
 
-    full_array = (int *)malloc(n * sizeof(int)); //allocation of space needed for the array
-
-    init(n, range, full_array);
+    init(n, range, file_name);
 
     ENDTIME(0, time_init);
 
-    /*Print initial array
-    for(int i=0; i<n; i++)
-        printf("%d ",full_array[i]);
-    printf("\n");*/
+
 
     STARTTIME(1);
 
-    countingSort(n, full_array);
+    countingSort(n, file_name);
 
     ENDTIME(1, time_count);
 
+
+
+    readingFile(file_name, n);
+
     printf("1;%f;%f\n", time_init, time_count);
 
-    /*Print sorted array
-    for(int i=0; i<n; i++)
-        printf("%d ",full_array[i]);*/
-
-    free(full_array);
-
-    return 0;
 }
 
 
 
 
-
 /**
- * @brief This function initialize randomly the array 'full_array'.
+ * @brief This function writes in the file 'file_name' 'n' integers.
  * @param n             number of array elements.
  * @param range         maximum acceptable integer.
- * @param full_array    pointer to the array.
+ * @param file_name     file name.
  */
-void init(int n, int range, int *full_array)
+void init(int n, int range, char *file_name)
 {
+    FILE *fp;
+    int app;
+
+    if ((fp = fopen(file_name, "wb")) == NULL)
+        exit(EXIT_FAILURE);
+
     for (int i = 0; i < n; i++)
-        full_array[i] = rand() % range;
+    {
+        app = rand() % range;
+        fwrite(&app, sizeof(int), 1, fp);
+        //Print to comment
+        printf("%d ", app);
+    }
+    //Print to comment
+    printf("\n\n");
+
+    fclose(fp);
 }
 
 
@@ -123,14 +127,30 @@ void init(int n, int range, int *full_array)
 
 
 /**
- * @brief This function sorts the array 'full_array' using Counting Sort Algorithm.
+ * @brief This function sorts the integers in 'file_name' using Counting Sort Algorithm.
  * @param n             number of array elements.
- * @param full_array    pointer to the unsorted array.
+ * @param file_name     file name.
  */
-void countingSort(int n, int *full_array)
+void countingSort(int n, char *file_name)
 {
+    FILE *fp;
+    int *full_array;
     int min = INT_MAX;
     int max = INT_MIN;
+
+    full_array = (int *)malloc(n * sizeof(int));
+
+    if ((fp = fopen(file_name, "rb+")) == NULL)
+        exit(EXIT_FAILURE);
+
+    for (int i = 0; i < n; i++)
+        fread(full_array + i, sizeof(int), 1, fp);
+    
+    //Print to comment
+    printf("DOPO LETTURA:\n");
+    for (int i = 0; i < n; i++)
+        printf("%d ", full_array[i]);
+    printf("\n\n");
 
     for (int i = 0; i < n; i++)
         if (full_array[i] > max)
@@ -168,4 +188,39 @@ void countingSort(int n, int *full_array)
     }
 
     free(c);
+
+    //moving to the beginning of the file
+    fseek(fp, 0, SEEK_SET);
+
+    for (int i = 0; i < n; i++)
+        fwrite(full_array + i, sizeof(int), 1, fp);
+
+    free(full_array);
+    fclose(fp);
+}
+
+
+
+
+
+/**
+ * @brief This function reads the integers in 'file_name' and prints them on stdout.
+ * @param file_name     file name.
+ * @param n             number of array elements.
+ */
+void readingFile(char *file_name, int n)
+{
+    FILE *fp;
+    int* full_array;
+
+    full_array = (int *)malloc(n * sizeof(int));    
+
+    if ((fp = fopen(file_name, "rb")) == NULL)
+        exit(EXIT_FAILURE);
+
+    for (int i = 0; i < n; i++){
+        fread(full_array + i, sizeof(int), 1, fp);
+        printf("%d ", full_array[i]);
+    }
+    printf("\n");
 }
