@@ -4,11 +4,13 @@
 #include <mpi.h>
 #include <time.h>
 
+void readingFile(char *, int *, int, int);
+
 int main(int argc, char **argv)
 {
     int i, n, rank, n_ranks, quoz, dim, range;
     int *piece_init_array, *full_array;
-    //double buf[n];
+    // double buf[n];
     char *file_name;
     MPI_File fh;
     MPI_Offset disp;
@@ -26,8 +28,8 @@ int main(int argc, char **argv)
         exit(EXIT_FAILURE);
     }
 
-    n = atoi(argv[1]);     //array length
-    range = atoi(argv[2]); //maximum acceptable integer
+    n = atoi(argv[1]);     // array length
+    range = atoi(argv[2]); // maximum acceptable integer
     file_name = argv[3];
     quoz = n / n_ranks;
 
@@ -42,7 +44,6 @@ int main(int argc, char **argv)
         dim = quoz + n % n_ranks;
 
     piece_init_array = (int *)malloc(dim * sizeof(int));
-    full_array = (int *)malloc(n * sizeof(int));
 
     for (i = 0; i < dim; i++)
         piece_init_array[i] = rand() % range;
@@ -56,17 +57,31 @@ int main(int argc, char **argv)
     MPI_File_delete(file_name, MPI_INFO_NULL);
     MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_CREATE | MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
 
-    disp = rank * dim * sizeof(int);
+    disp = rank * quoz * sizeof(int);
     MPI_File_set_view(fh, disp, MPI_INT, MPI_INT, "native", MPI_INFO_NULL);
     MPI_File_write(fh, piece_init_array, dim, MPI_INT, MPI_STATUS_IGNORE);
 
-        MPI_File_read_all(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
-
-    if (rank == 0)
-        for (i = 0; i < n; i++)
-            printf("%d ", full_array[i]);
-
     MPI_File_close(&fh);
+
+    readingFile(file_name, full_array, n, rank);
+
     MPI_Finalize();
     return 0;
+}
+
+void readingFile(char *file_name, int *full_array, int n, int rank)
+{
+    MPI_File fh;
+    MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
+
+    if (rank == 0)
+    {
+        full_array = (int *)malloc(n * sizeof(int));
+        MPI_File_read(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
+        for (int i = 0; i < n; i++)
+            printf("%d ", full_array[i]);
+        printf("\n");
+    }
+
+    MPI_File_close(&fh);
 }
