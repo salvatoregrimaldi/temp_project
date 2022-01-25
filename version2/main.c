@@ -59,10 +59,8 @@ int main(int argc, char **argv)
     disp = rank * dim * sizeof(int);
     MPI_File_set_view(fh, disp, MPI_INT, MPI_INT, "native", MPI_INFO_NULL);
     MPI_File_write(fh, piece_init_array, dim, MPI_INT, MPI_STATUS_IGNORE);
-MPI_File_close(&fh);
-   MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_CREATE | MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
-    if(rank == 0)
-        MPI_File_read(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
+
+        MPI_File_read_all(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
 
     if (rank == 0)
         for (i = 0; i < n; i++)
