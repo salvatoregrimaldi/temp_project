@@ -4,7 +4,7 @@
 #include <mpi.h>
 #include <time.h>
 
-void readingFile(char *, int *, int, int);
+void readingFile(char *, int *, int, int, int);
 
 int main(int argc, char **argv)
 {
@@ -63,23 +63,50 @@ int main(int argc, char **argv)
 
     MPI_File_close(&fh);
 
-    readingFile(file_name, full_array, n, rank);
+    if (rank == 0)
+        printf("\nLETTURA\n");
+
+    readingFile(file_name, full_array, n, rank, n_ranks);
 
     MPI_Finalize();
     return 0;
 }
 
-void readingFile(char *file_name, int *full_array, int n, int rank)
+void readingFile(char *file_name, int *full_array, int n, int rank, int n_ranks)
 {
     MPI_File fh;
+    int dim;
+    int quoz = n / n_ranks;
+    int *piece;
+    int disp;
     MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
 
-    if (rank == 0)
+    disp = rank * quoz * sizeof(int);
+    MPI_File_set_view(fh, disp, MPI_INT, MPI_INT, "native", MPI_INFO_NULL);
+
+    if (rank >= 0 && rank < n_ranks - 1)
     {
-        full_array = (int *)malloc(n * sizeof(int));
-        MPI_File_read(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
-        for (int i = 0; i < n; i++)
-            printf("%d ", full_array[i]);
+        dim = quoz;
+        piece = (int *)malloc(dim * sizeof(int));
+        MPI_File_read(fh, piece, dim, MPI_INT, MPI_STATUS_IGNORE);
+
+        for (int i = 0; i < dim; i++)
+        {
+            printf("%d ", piece[i]);
+        }
+        printf("\n");
+    }
+
+    if (rank == n_ranks - 1)
+    {
+        dim = quoz + n % n_ranks;
+        piece = (int *)malloc(dim * sizeof(int));
+        MPI_File_read(fh, piece, dim, MPI_INT, MPI_STATUS_IGNORE);
+
+        for (int i = 0; i < dim; i++)
+        {
+            printf("%d ", piece[i]);
+        }
         printf("\n");
     }
 
