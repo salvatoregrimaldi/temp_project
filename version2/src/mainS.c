@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
     if (argc != 4)
     {
-        printf("ERROR! YOU MUST INSERT ARRAY LENGTH AND THE MAXIMUM ACCEPTABLE INTEGER\n");
+        printf("ERROR! YOU MUST INSERT ARRAY LENGTH, THE MAXIMUM ACCEPTABLE INTEGER AND THE FILE NAME\n");
         exit(EXIT_FAILURE);
     }
 
@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
 
 
 
-    readingFile(file_name, n);
+    //readingFile(file_name, n);
 
     printf("1;%f;%f\n", time_init, time_count);
 
@@ -114,10 +114,10 @@ void init(int n, int range, char *file_name)
         app = rand() % range;
         fwrite(&app, sizeof(int), 1, fp);
         //Print to comment
-        printf("%d ", app);
+        //printf("%d ", app);
     }
     //Print to comment
-    printf("\n\n");
+    //printf("\n\n");
 
     fclose(fp);
 }
@@ -147,10 +147,10 @@ void countingSort(int n, char *file_name)
         fread(full_array + i, sizeof(int), 1, fp);
     
     //Print to comment
-    printf("DOPO LETTURA:\n");
+    /*printf("DOPO LETTURA:\n");
     for (int i = 0; i < n; i++)
         printf("%d ", full_array[i]);
-    printf("\n\n");
+    printf("\n\n");*/
 
     for (int i = 0; i < n; i++)
         if (full_array[i] > max)

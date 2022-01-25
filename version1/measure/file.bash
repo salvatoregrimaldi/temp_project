@@ -55,7 +55,7 @@ for size in "${ARRAY_SIZE[@]}"; do
 
                 for (( nExec = 0 ; nExec < $NMEASURES ; nExec += 1 )) ; do
                     if [[ $nTh -eq 0 ]]; then
-					    $1/eseguibileSeqO$opt $size $num  >> $OUT_FILE
+					    $1/eseguibileSeqO$opt $size $num >> $OUT_FILE
                     else
                         mpirun.mpich -np $nTh $1/eseguibileO$opt $size $num >> $OUT_FILE 
                     fi

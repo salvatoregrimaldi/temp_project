@@ -31,11 +31,11 @@ TIMEFORMAT='%4U;%4E;%4S;%P'
 TIMESTAMP=$(date +%F.%T)
 
 NMEASURES=20
-ARRAY_SIZE=(10000 100000 1000000 10000000) #carico
-ARRAY_MAX_NUM=(1000 100000 1000000) #num max
-ARRAY_THS=(0 1 2 4 8 16)
-ARRAY_OPT=(0 1 2 3)
-
+ARRAY_SIZE=(10000 100000) #carico
+ARRAY_MAX_NUM=(100000) #num max
+ARRAY_THS=(0 1 2 4 8)
+ARRAY_OPT=(0)
+FILE="../src/file.bin"
 
 SCRIPTPATH=$2
 
@@ -55,9 +55,9 @@ for size in "${ARRAY_SIZE[@]}"; do
 
                 for (( nExec = 0 ; nExec < $NMEASURES ; nExec += 1 )) ; do
                     if [[ $nTh -eq 0 ]]; then
-					    $1/eseguibileSeqO$opt $size $num  >> $OUT_FILE
+					    $1/eseguibileSeqO$opt $size $num $FILE >> $OUT_FILE
                     else
-                        mpirun.mpich -np $nTh $1/eseguibileO$opt $size $num >> $OUT_FILE 
+                        mpirun.mpich -np $nTh $1/eseguibileO$opt $size $num $FILE >> $OUT_FILE 
                     fi
 
                     printf "\r> %5d/%d %3.1d%% [ " $(expr $nExec + 1) $NMEASURES $(expr \( \( $nExec + 1  \) \* 100 \) / $NMEASURES)

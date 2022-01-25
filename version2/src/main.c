@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
         //free(full_array);
     }
 
-    readingFile(file_name, n, rank);
+    //readingFile(file_name, n, rank);
 
     MPI_Finalize();
 }
