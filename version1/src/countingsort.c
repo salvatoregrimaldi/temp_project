@@ -52,7 +52,7 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
     int *recvcounts;
     int *displ;
     int dim;
-    int *piece_init_vect;
+    int *piece_init_array;
     int i;
 
     int quoz = n / n_ranks;
@@ -76,16 +76,16 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
             recvcounts[i] = quoz;
     }
 
-    piece_init_vect = (int *)malloc(dim * sizeof(int));
+    piece_init_array = (int *)malloc(dim * sizeof(int));
 
     for (i = 0; i < dim; i++)
-        piece_init_vect[i] = rand() % range;
+        piece_init_array[i] = rand() % range;
 
-    MPI_Gatherv(piece_init_vect, dim, MPI_INT, full_array, recvcounts, displ, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Gatherv(piece_init_array, dim, MPI_INT, full_array, recvcounts, displ, MPI_INT, 0, MPI_COMM_WORLD);
 
     free(recvcounts);
     free(displ);
-    free(piece_init_vect);
+    free(piece_init_array);
 }
 
 /**
