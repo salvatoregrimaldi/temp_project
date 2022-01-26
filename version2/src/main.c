@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 {
     int rank, n_ranks, range;
     double read_start_time, time_init, time_count;
-    char* file_name;
+    char *file_name;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &n_ranks);

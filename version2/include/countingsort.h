@@ -36,8 +36,8 @@
 #ifndef COUNTINGSORT_H_ /* Include guard */
 #define COUNTINGSORT_H_
 
-void init(int n, int rank, int n_ranks, int range, char* file_name);
-void countingSort(int n, int n_ranks, int rank, char* file_name);
-void readingFile(char* file_name, int n, int rank);
+void init(int, int, int, int, char *);
+void countingSort(int, int, int, char *);
+void readingFile(char *, int, int);
 
 #endif

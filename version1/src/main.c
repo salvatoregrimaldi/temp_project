@@ -76,8 +76,8 @@ int main(int argc, char *argv[])
     {
         time_init = MPI_Wtime() - read_start_time;
 
-        /*Print initial array
-        for (int i = 0; i < n; i++)
+        //Print initial array
+        /*for (int i = 0; i < n; i++)
             printf("%d ", full_array[i]);
         printf("\n\n");*/
 
@@ -90,8 +90,8 @@ int main(int argc, char *argv[])
     if (rank == 0)
     {
 
-        /*Print sorted array
-        for (int i = 0; i < n; i++)
+        //Print sorted array
+        /*for (int i = 0; i < n; i++)
             printf("%d ", full_array[i]);
         printf("\n\n");*/
 
