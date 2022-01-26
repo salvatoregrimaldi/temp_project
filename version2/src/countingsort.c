@@ -47,12 +47,12 @@
  * @param range         maximum acceptable integer.
  * @param file_name     file name.
  */
-void init(int n, int rank, int n_ranks, int range, char* file_name)
+void init(int n, int rank, int n_ranks, int range, char *file_name)
 {
     int dim, i;
     MPI_File fh;
     MPI_Offset disp;
-    int* piece_init_array;
+    int *piece_init_array;
     int quoz = n / n_ranks;
 
     if (rank >= 0 && rank < n_ranks - 1)
@@ -84,8 +84,6 @@ void init(int n, int rank, int n_ranks, int range, char* file_name)
     MPI_File_close(&fh);
 }
 
-
-
 /**
  * @brief This function sorts the integers in 'file_name' using Counting Sort Algorithm distributing the computation among the processes.
  * @param n             number of array elements.
@@ -93,7 +91,7 @@ void init(int n, int rank, int n_ranks, int range, char* file_name)
  * @param rank          rank of the current process.
  * @param file_name     file name.
  */
-void countingSort(int n, int n_ranks, int rank, char* file_name)
+void countingSort(int n, int n_ranks, int rank, char *file_name)
 {
     MPI_File fh;
     int dim;
@@ -141,19 +139,17 @@ void countingSort(int n, int n_ranks, int rank, char* file_name)
             printf("%d ", piece_of_array[i]);
         }
         printf("\n");*/
-    
-    /*----------------------------------------------------------------------------------------------------*/
 
+    /*----------------------------------------------------------------------------------------------------*/
 
     /*-------------------------------MIN E MAX-------------------------------------------------------------*/
     for (i = 0; i < dim; i++)
     {
         if (piece_of_array[i] < local_min)
             local_min = piece_of_array[i];
-        else if (piece_of_array[i] > local_max)
+        if (piece_of_array[i] > local_max)
             local_max = piece_of_array[i];
     }
-
 
     MPI_Allreduce(&local_min, &min, 1, MPI_INT, MPI_MIN, MPI_COMM_WORLD);
     MPI_Allreduce(&local_max, &max, 1, MPI_INT, MPI_MAX, MPI_COMM_WORLD);
@@ -214,17 +210,10 @@ void countingSort(int n, int n_ranks, int rank, char* file_name)
         MPI_File_seek(fh, 0, MPI_SEEK_SET);
         MPI_File_write(fh, full_array, n, MPI_INT, MPI_STATUS_IGNORE);
         free(full_array);
-
     }
 
-
     MPI_File_close(&fh);
-
 }
-
-
-
-
 
 /**
  * @brief This function reads the integers in 'file_name' and prints them on stdout.
@@ -232,9 +221,9 @@ void countingSort(int n, int n_ranks, int rank, char* file_name)
  * @param n             number of array elements.
  * @param rank          rank of the current process.
  */
-void readingFile(char* file_name, int n, int rank)
+void readingFile(char *file_name, int n, int rank)
 {
-    int* full_array;
+    int *full_array;
     MPI_File fh;
     MPI_File_open(MPI_COMM_WORLD, file_name, MPI_MODE_RDWR, MPI_INFO_NULL, &fh);
 

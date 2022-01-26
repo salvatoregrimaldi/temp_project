@@ -155,7 +155,7 @@ void countingSort(int n, char *file_name)
     for (int i = 0; i < n; i++)
         if (full_array[i] > max)
             max = full_array[i];
-        else if (full_array[i] < min)
+        if (full_array[i] < min)
             min = full_array[i];
 
     int *c;

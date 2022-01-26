@@ -88,10 +88,6 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
     free(piece_init_array);
 }
 
-
-
-
-
 /**
  * @brief This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation among the processes.
  * @param n             number of array elements.
@@ -144,10 +140,9 @@ void countingSort(int n, int n_ranks, int rank, int *full_array)
     {
         if (piece_of_array[i] < local_min)
             local_min = piece_of_array[i];
-        else if (piece_of_array[i] > local_max)
+        if (piece_of_array[i] > local_max)
             local_max = piece_of_array[i];
     }
-
     MPI_Allreduce(&local_min, &min, 1, MPI_INT, MPI_MIN, MPI_COMM_WORLD);
     MPI_Allreduce(&local_max, &max, 1, MPI_INT, MPI_MAX, MPI_COMM_WORLD);
     /*-----------------------------------------------------------------------------------------------------*/
