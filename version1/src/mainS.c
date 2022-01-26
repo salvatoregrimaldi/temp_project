@@ -102,10 +102,6 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-
-
-
-
 /**
  * @brief This function initialize randomly the array 'full_array'.
  * @param n             number of array elements.
@@ -118,10 +114,6 @@ void init(int n, int range, int *full_array)
         full_array[i] = rand() % range;
 }
 
-
-
-
-
 /**
  * @brief This function sorts the array 'full_array' using Counting Sort Algorithm.
  * @param n             number of array elements.
@@ -133,10 +125,12 @@ void countingSort(int n, int *full_array)
     int max = INT_MIN;
 
     for (int i = 0; i < n; i++)
+    {
         if (full_array[i] > max)
             max = full_array[i];
         if (full_array[i] < min)
             min = full_array[i];
+    }
 
     int *c;
     int lenC = max - min + 1;

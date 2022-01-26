@@ -76,24 +76,16 @@ int main(int argc, char *argv[])
 
     ENDTIME(0, time_init);
 
-
-
     STARTTIME(1);
 
     countingSort(n, file_name);
 
     ENDTIME(1, time_count);
 
-
-
     //readingFile(file_name, n);
 
     printf("1;%f;%f\n", time_init, time_count);
-
 }
-
-
-
 
 /**
  * @brief This function writes in the file 'file_name' 'n' integers.
@@ -122,10 +114,6 @@ void init(int n, int range, char *file_name)
     fclose(fp);
 }
 
-
-
-
-
 /**
  * @brief This function sorts the integers in 'file_name' using Counting Sort Algorithm.
  * @param n             number of array elements.
@@ -145,7 +133,7 @@ void countingSort(int n, char *file_name)
 
     for (int i = 0; i < n; i++)
         fread(full_array + i, sizeof(int), 1, fp);
-    
+
     //Print to comment
     /*printf("DOPO LETTURA:\n");
     for (int i = 0; i < n; i++)
@@ -153,10 +141,12 @@ void countingSort(int n, char *file_name)
     printf("\n\n");*/
 
     for (int i = 0; i < n; i++)
+    {
         if (full_array[i] > max)
             max = full_array[i];
         if (full_array[i] < min)
             min = full_array[i];
+    }
 
     int *c;
     int lenC = max - min + 1;
@@ -199,10 +189,6 @@ void countingSort(int n, char *file_name)
     fclose(fp);
 }
 
-
-
-
-
 /**
  * @brief This function reads the integers in 'file_name' and prints them on stdout.
  * @param file_name     file name.
@@ -211,14 +197,15 @@ void countingSort(int n, char *file_name)
 void readingFile(char *file_name, int n)
 {
     FILE *fp;
-    int* full_array;
+    int *full_array;
 
-    full_array = (int *)malloc(n * sizeof(int));    
+    full_array = (int *)malloc(n * sizeof(int));
 
     if ((fp = fopen(file_name, "rb")) == NULL)
         exit(EXIT_FAILURE);
 
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++)
+    {
         fread(full_array + i, sizeof(int), 1, fp);
         printf("%d ", full_array[i]);
     }
