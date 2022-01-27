@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 
     ENDTIME(1, time_count);
 
-    //readingFile(file_name, n);
+    readingFile(file_name, n);
 
     printf("1;%f;%f\n", time_init, time_count);
 }
@@ -97,19 +97,18 @@ void init(int n, int range, char *file_name)
 {
     FILE *fp;
     int app;
+    int* full_array;
 
-    if ((fp = fopen(file_name, "wb")) == NULL)
+    full_array = (int *)malloc(n*sizeof(int));
+
+    if ((fp = fopen(file_name, "w")) == NULL)
         exit(EXIT_FAILURE);
+    
+    for (int i = 0; i < n; i++) full_array[i] = rand() % range;
 
-    for (int i = 0; i < n; i++)
-    {
-        app = rand() % range;
-        fwrite(&app, sizeof(int), 1, fp);
-        //Print to comment
-        //printf("%d ", app);
-    }
-    //Print to comment
-    //printf("\n\n");
+    fwrite(full_array, sizeof(int), n, fp);
+
+    free(full_array);
 
     fclose(fp);
 }
@@ -128,17 +127,10 @@ void countingSort(int n, char *file_name)
 
     full_array = (int *)malloc(n * sizeof(int));
 
-    if ((fp = fopen(file_name, "rb+")) == NULL)
+    if ((fp = fopen(file_name, "r+")) == NULL)
         exit(EXIT_FAILURE);
-
-    for (int i = 0; i < n; i++)
-        fread(full_array + i, sizeof(int), 1, fp);
-
-    //Print to comment
-    /*printf("DOPO LETTURA:\n");
-    for (int i = 0; i < n; i++)
-        printf("%d ", full_array[i]);
-    printf("\n\n");*/
+    
+    fread(full_array, sizeof(int), n, fp);
 
     for (int i = 0; i < n; i++)
     {
@@ -182,10 +174,10 @@ void countingSort(int n, char *file_name)
     //moving to the beginning of the file
     fseek(fp, 0, SEEK_SET);
 
-    for (int i = 0; i < n; i++)
-        fwrite(full_array + i, sizeof(int), 1, fp);
+    fwrite(full_array, sizeof(int), n, fp);
 
     free(full_array);
+
     fclose(fp);
 }
 
@@ -201,13 +193,13 @@ void readingFile(char *file_name, int n)
 
     full_array = (int *)malloc(n * sizeof(int));
 
-    if ((fp = fopen(file_name, "rb")) == NULL)
+    if ((fp = fopen(file_name, "r")) == NULL)
         exit(EXIT_FAILURE);
 
-    for (int i = 0; i < n; i++)
-    {
-        fread(full_array + i, sizeof(int), 1, fp);
-        printf("%d ", full_array[i]);
-    }
+    fread(full_array, sizeof(int), n, fp);
+
+    for(int i=0; i<n; i++) printf("%d ", full_array[i]);
+
+
     printf("\n");
 }
