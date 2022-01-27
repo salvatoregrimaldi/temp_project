@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 
     ENDTIME(1, time_count);
 
-    readingFile(file_name, n);
+    //readingFile(file_name, n);
 
     printf("1;%f;%f\n", time_init, time_count);
 }
