@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MPI Version1 Counting Sort: include/countingsort.h Source File</title>
+<title>MPI Counting Sort - Version1: include/countingsort.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MPI Version1 Counting Sort
+   <div id="projectname">MPI Counting Sort - Version1
    </div>
   </td>
  </tr>
@@ -75,9 +75,9 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Lecturer: Francesco Moscato  fmoscato@unisa.it</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Group:</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              </span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * Salvatore Grimaldi       0622701742      s.grimaldi29@studenti.unisa.it              </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Enrico Maria Di Mauro    0622701706      e.dimauro5@studenti.unisa.it</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * Allegra Cuzzocrea        0622701707      a.cuzzocrea2@studenti.unisa.it</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * </span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * </span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Copyright (C) 2021 - All Rights Reserved </span></div>
@@ -101,13 +101,13 @@ $(function() {
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#ifndef COUNTINGSORT_H_ </span><span class="comment">/* Include guard */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#define COUNTINGSORT_H_</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="countingsort_8h.html#ad1eeb09a20ada2bb4a6aed5e131b5f33">init</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> n_ranks, <span class="keywordtype">int</span> rank, <span class="keywordtype">int</span> range, <span class="keywordtype">int</span> *full_vector);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="countingsort_8h.html#a93ba53b4213b9275f9d8604410db05e4">countingSort</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> n_ranks, <span class="keywordtype">int</span> rank, <span class="keywordtype">int</span> *full_vector);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">void</span> <a class="code" href="countingsort_8h.html#acc6832b5a555efcab958e6457964115f">init</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span> *);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="countingsort_8h.html#a91aeee0cd85e7a94c0378ca9cb1d1d02">countingSort</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span> *);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="acountingsort_8h_html_a93ba53b4213b9275f9d8604410db05e4"><div class="ttname"><a href="countingsort_8h.html#a93ba53b4213b9275f9d8604410db05e4">countingSort</a></div><div class="ttdeci">void countingSort(int n, int n_ranks, int rank, int *full_vector)</div><div class="ttdoc">This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation...</div><div class="ttdef"><b>Definition:</b> countingsort.c:102</div></div>
-<div class="ttc" id="acountingsort_8h_html_ad1eeb09a20ada2bb4a6aed5e131b5f33"><div class="ttname"><a href="countingsort_8h.html#ad1eeb09a20ada2bb4a6aed5e131b5f33">init</a></div><div class="ttdeci">void init(int n, int n_ranks, int rank, int range, int *full_vector)</div><div class="ttdoc">This function initialize randomly the array 'full_array' distributing the computation among the proce...</div><div class="ttdef"><b>Definition:</b> countingsort.c:50</div></div>
+<div class="ttc" id="acountingsort_8h_html_a91aeee0cd85e7a94c0378ca9cb1d1d02"><div class="ttname"><a href="countingsort_8h.html#a91aeee0cd85e7a94c0378ca9cb1d1d02">countingSort</a></div><div class="ttdeci">void countingSort(int, int, int, int *)</div><div class="ttdoc">This is the function that sorts the array 'full_array' using Counting Sort Algorithm and distributing...</div><div class="ttdef"><b>Definition:</b> countingsort.c:97</div></div>
+<div class="ttc" id="acountingsort_8h_html_acc6832b5a555efcab958e6457964115f"><div class="ttname"><a href="countingsort_8h.html#acc6832b5a555efcab958e6457964115f">init</a></div><div class="ttdeci">void init(int, int, int, int, int *)</div><div class="ttdoc">This is the function that initializes randomly the array 'full_array' distributing the computation am...</div><div class="ttdef"><b>Definition:</b> countingsort.c:49</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MPI Version2 Counting Sort: include/countingsort.h File Reference</title>
+<title>MPI Counting Sort - Version2: include/countingsort.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MPI Version2 Counting Sort
+   <div id="projectname">MPI Counting Sort - Version2
    </div>
   </td>
  </tr>
@@ -88,22 +88,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a760e592dea82668d21e28ae2ccad69ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a760e592dea82668d21e28ae2ccad69ad">init</a> (int n, int rank, int n_ranks, int range, char *file_name)</td></tr>
-<tr class="memdesc:a760e592dea82668d21e28ae2ccad69ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function writes in the file 'file_name' 'n' integers distributing the computation among the processes.  <a href="countingsort_8h.html#a760e592dea82668d21e28ae2ccad69ad">More...</a><br /></td></tr>
-<tr class="separator:a760e592dea82668d21e28ae2ccad69ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7da62ea394562bce4a17c6f73a81d8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#ae7da62ea394562bce4a17c6f73a81d8b">countingSort</a> (int n, int n_ranks, int rank, char *file_name)</td></tr>
-<tr class="memdesc:ae7da62ea394562bce4a17c6f73a81d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sorts the integers in 'file_name' using Counting Sort Algorithm distributing the computation among the processes.  <a href="countingsort_8h.html#ae7da62ea394562bce4a17c6f73a81d8b">More...</a><br /></td></tr>
-<tr class="separator:ae7da62ea394562bce4a17c6f73a81d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bbea23b757f2f464ed269fb6cfdb097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a8bbea23b757f2f464ed269fb6cfdb097">readingFile</a> (char *file_name, int n, int rank)</td></tr>
-<tr class="memdesc:a8bbea23b757f2f464ed269fb6cfdb097"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads the integers in 'file_name' and prints them on stdout.  <a href="countingsort_8h.html#a8bbea23b757f2f464ed269fb6cfdb097">More...</a><br /></td></tr>
-<tr class="separator:a8bbea23b757f2f464ed269fb6cfdb097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14844b3a28479703280dc34254923014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a14844b3a28479703280dc34254923014">init</a> (int, int, int, int, char *)</td></tr>
+<tr class="memdesc:a14844b3a28479703280dc34254923014"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that writes in the file 'file_name' 'n' integers distributing the computation among the processes.  <a href="countingsort_8h.html#a14844b3a28479703280dc34254923014">More...</a><br /></td></tr>
+<tr class="separator:a14844b3a28479703280dc34254923014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ba48ab31a6b863e6e687736d703cb10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a7ba48ab31a6b863e6e687736d703cb10">countingSort</a> (int, int, int, char *)</td></tr>
+<tr class="memdesc:a7ba48ab31a6b863e6e687736d703cb10"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that sorts the integers in 'file_name' using Counting Sort Algorithm and distributing the computation among the processes.  <a href="countingsort_8h.html#a7ba48ab31a6b863e6e687736d703cb10">More...</a><br /></td></tr>
+<tr class="separator:a7ba48ab31a6b863e6e687736d703cb10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458018d95e12f52c183418fe88a83cdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a458018d95e12f52c183418fe88a83cdb">readingFile</a> (int, int, char *)</td></tr>
+<tr class="memdesc:a458018d95e12f52c183418fe88a83cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that reads the integers in 'file_name' and prints them on stdout.  <a href="countingsort_8h.html#a458018d95e12f52c183418fe88a83cdb">More...</a><br /></td></tr>
+<tr class="separator:a458018d95e12f52c183418fe88a83cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the file .h that contains the headers of the functions that are called in the main. </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae7da62ea394562bce4a17c6f73a81d8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7da62ea394562bce4a17c6f73a81d8b">&#9670;&nbsp;</a></span>countingSort()</h2>
+<a id="a7ba48ab31a6b863e6e687736d703cb10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ba48ab31a6b863e6e687736d703cb10">&#9670;&nbsp;</a></span>countingSort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,7 +140,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function sorts the integers in 'file_name' using Counting Sort Algorithm distributing the computation among the processes. </p>
+<p>This is the function that sorts the integers in 'file_name' using Counting Sort Algorithm and distributing the computation among the processes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of array elements. </td></tr>
@@ -153,8 +153,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a760e592dea82668d21e28ae2ccad69ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a760e592dea82668d21e28ae2ccad69ad">&#9670;&nbsp;</a></span>init()</h2>
+<a id="a14844b3a28479703280dc34254923014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14844b3a28479703280dc34254923014">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,13 +169,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rank</em>, </td>
+          <td class="paramname"><em>n_ranks</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n_ranks</em>, </td>
+          <td class="paramname"><em>rank</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -197,12 +197,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function writes in the file 'file_name' 'n' integers distributing the computation among the processes. </p>
+<p>This is the function that writes in the file 'file_name' 'n' integers distributing the computation among the processes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of array elements. </td></tr>
-    <tr><td class="paramname">rank</td><td>rank of the current process. </td></tr>
     <tr><td class="paramname">n_ranks</td><td>number of ranks. </td></tr>
+    <tr><td class="paramname">rank</td><td>rank of the current process. </td></tr>
     <tr><td class="paramname">range</td><td>maximum acceptable integer. </td></tr>
     <tr><td class="paramname">file_name</td><td>file name. </td></tr>
   </table>
@@ -211,8 +211,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8bbea23b757f2f464ed269fb6cfdb097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bbea23b757f2f464ed269fb6cfdb097">&#9670;&nbsp;</a></span>readingFile()</h2>
+<a id="a458018d95e12f52c183418fe88a83cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458018d95e12f52c183418fe88a83cdb">&#9670;&nbsp;</a></span>readingFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,12 +220,6 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void readingFile </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>n</em>, </td>
         </tr>
@@ -233,7 +227,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rank</em>&#160;</td>
+          <td class="paramname"><em>rank</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file_name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -243,12 +243,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function reads the integers in 'file_name' and prints them on stdout. </p>
+<p>This is the function that reads the integers in 'file_name' and prints them on stdout. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">file_name</td><td>file name. </td></tr>
     <tr><td class="paramname">n</td><td>number of array elements. </td></tr>
     <tr><td class="paramname">rank</td><td>rank of the current process. </td></tr>
+    <tr><td class="paramname">file_name</td><td>file name. </td></tr>
   </table>
   </dd>
 </dl>
@@ -256,9 +256,12 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="acountingsort_8c_html_a760e592dea82668d21e28ae2ccad69ad"><div class="ttname"><a href="countingsort_8c.html#a760e592dea82668d21e28ae2ccad69ad">init</a></div><div class="ttdeci">void init(int n, int rank, int n_ranks, int range, char *file_name)</div><div class="ttdoc">This function writes in the file 'file_name' 'n' integers distributing the computation among the proc...</div><div class="ttdef"><b>Definition:</b> countingsort.c:50</div></div>
-<div class="ttc" id="acountingsort_8c_html_a8bbea23b757f2f464ed269fb6cfdb097"><div class="ttname"><a href="countingsort_8c.html#a8bbea23b757f2f464ed269fb6cfdb097">readingFile</a></div><div class="ttdeci">void readingFile(char *file_name, int n, int rank)</div><div class="ttdoc">This function reads the integers in 'file_name' and prints them on stdout.</div><div class="ttdef"><b>Definition:</b> countingsort.c:235</div></div>
-<div class="ttc" id="acountingsort_8c_html_ae7da62ea394562bce4a17c6f73a81d8b"><div class="ttname"><a href="countingsort_8c.html#ae7da62ea394562bce4a17c6f73a81d8b">countingSort</a></div><div class="ttdeci">void countingSort(int n, int n_ranks, int rank, char *file_name)</div><div class="ttdoc">This function sorts the integers in 'file_name' using Counting Sort Algorithm distributing the comput...</div><div class="ttdef"><b>Definition:</b> countingsort.c:96</div></div>
+<div class="ttc" id="amain_s_8c_html_a73fe8a90ad5ae307fce5e3e50f367049"><div class="ttname"><a href="main_s_8c.html#a73fe8a90ad5ae307fce5e3e50f367049">init</a></div><div class="ttdeci">void init(int, int, char *)</div><div class="ttdoc">This is the function that writes in the file 'file_name' 'n' integers.</div><div class="ttdef"><b>Definition:</b> mainS.c:96</div></div>
+<div class="ttc" id="amain_s_8c_html_ab1387150a1861823c58fe3dea3b9d458"><div class="ttname"><a href="main_s_8c.html#ab1387150a1861823c58fe3dea3b9d458">readingFile</a></div><div class="ttdeci">void readingFile(int, char *)</div><div class="ttdoc">This is the function that reads the integers in 'file_name' and prints them on stdout.</div><div class="ttdef"><b>Definition:</b> mainS.c:190</div></div>
+<div class="ttc" id="acountingsort_8c_html_a55f364d28282daa6d5a2dcfad86d5641"><div class="ttname"><a href="countingsort_8c.html#a55f364d28282daa6d5a2dcfad86d5641">readingFile</a></div><div class="ttdeci">void readingFile(int n, int rank, char *file_name)</div><div class="ttdoc">This is the function that reads the integers in 'file_name' and prints them on stdout.</div><div class="ttdef"><b>Definition:</b> countingsort.c:197</div></div>
+<div class="ttc" id="amain_s_8c_html_a267dbd6e4d099e5b5ffd1d69a737845b"><div class="ttname"><a href="main_s_8c.html#a267dbd6e4d099e5b5ffd1d69a737845b">countingSort</a></div><div class="ttdeci">void countingSort(int, char *)</div><div class="ttdoc">This is the function that sorts the integers in 'file_name' using Counting Sort Algorithm.</div><div class="ttdef"><b>Definition:</b> mainS.c:122</div></div>
+<div class="ttc" id="acountingsort_8c_html_ad040b73cc3551081fcbe21a9494dd5cb"><div class="ttname"><a href="countingsort_8c.html#ad040b73cc3551081fcbe21a9494dd5cb">init</a></div><div class="ttdeci">void init(int n, int n_ranks, int rank, int range, char *file_name)</div><div class="ttdoc">This is the function that writes in the file 'file_name' 'n' integers distributing the computation am...</div><div class="ttdef"><b>Definition:</b> countingsort.c:50</div></div>
+<div class="ttc" id="acountingsort_8c_html_ae7da62ea394562bce4a17c6f73a81d8b"><div class="ttname"><a href="countingsort_8c.html#ae7da62ea394562bce4a17c6f73a81d8b">countingSort</a></div><div class="ttdeci">void countingSort(int n, int n_ranks, int rank, char *file_name)</div><div class="ttdoc">This is the function that sorts the integers in 'file_name' using Counting Sort Algorithm and distrib...</div><div class="ttdef"><b>Definition:</b> countingsort.c:89</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

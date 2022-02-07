@@ -4,9 +4,9 @@
  * Lecturer: Francesco Moscato	fmoscato@unisa.it
  *
  * Group:
- * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
- * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
- * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
+ * Salvatore Grimaldi       0622701742      s.grimaldi29@studenti.unisa.it              
+ * Enrico Maria Di Mauro    0622701706      e.dimauro5@studenti.unisa.it
+ * Allegra Cuzzocrea        0622701707      a.cuzzocrea2@studenti.unisa.it
  * 
  * 
  * Copyright (C) 2021 - All Rights Reserved 
@@ -40,8 +40,8 @@
 #include <sys/times.h>
 #include <limits.h>
 
-void init(int n, int range, int *full_array);
-void countingSort(int n, int *full_array);
+void init(int, int, int *);
+void countingSort(int, int *);
 
 #define STARTTIME(id)                             \
     clock_t start_time_42_##id, end_time_42_##id; \
@@ -67,11 +67,6 @@ int main(int argc, char *argv[])
     n = atoi(argv[1]);     //array length
     range = atoi(argv[2]); //maximum acceptable integer
 
-    /*
-    for(int i=0; i<n; i++)
-        printf("%d ",full_array[i]);
-    printf("\n");*/
-
     STARTTIME(0);
 
     full_array = (int *)malloc(n * sizeof(int)); //allocation of space needed for the array
@@ -80,10 +75,10 @@ int main(int argc, char *argv[])
 
     ENDTIME(0, time_init);
 
-    /*Print initial array
-    for(int i=0; i<n; i++)
+    //Print initial array
+    /*for(int i=0; i<n; i++)
         printf("%d ",full_array[i]);
-    printf("\n");*/
+    printf("\n\n");*/
 
     STARTTIME(1);
 
@@ -91,11 +86,12 @@ int main(int argc, char *argv[])
 
     ENDTIME(1, time_count);
 
-    printf("1;%f;%f\n", time_init, time_count);
+    //Print sorted array
+    /*for(int i=0; i<n; i++)
+        printf("%d ",full_array[i]);
+    printf("\n\n");*/
 
-    /*Print sorted array
-    for(int i=0; i<n; i++)
-        printf("%d ",full_array[i]);*/
+    printf("1;%f;%f\n", time_init, time_count);
 
     free(full_array);
 
@@ -103,7 +99,7 @@ int main(int argc, char *argv[])
 }
 
 /**
- * @brief This function initialize randomly the array 'full_array'.
+ * @brief This is the function that initializes randomly the array 'full_array'.
  * @param n             number of array elements.
  * @param range         maximum acceptable integer.
  * @param full_array    pointer to the array.
@@ -111,11 +107,11 @@ int main(int argc, char *argv[])
 void init(int n, int range, int *full_array)
 {
     for (int i = 0; i < n; i++)
-        full_array[i] = rand() % range;
+        full_array[i] = rand() % (range + 1);
 }
 
 /**
- * @brief This function sorts the array 'full_array' using Counting Sort Algorithm.
+ * @brief This is the function that sorts the array 'full_array' using Counting Sort Algorithm.
  * @param n             number of array elements.
  * @param full_array    pointer to the unsorted array.
  */

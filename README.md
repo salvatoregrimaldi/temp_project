@@ -1,9 +1,9 @@
-# ContestOMP
+# Contest-MPI
 
 ## Dependencies
 
 - CMake 3.9+
-- OpenMP
+- MPICH
 - Python3.9
 - Pipenv
 

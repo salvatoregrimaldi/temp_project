@@ -1,15 +1,15 @@
-/* 
+/*
  * Course: High Performance Computing 2021/2022
- * 
+ *
  * Lecturer: Francesco Moscato	fmoscato@unisa.it
  *
  * Group:
- * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
- * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
- * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
- * 
- * 
- * Copyright (C) 2021 - All Rights Reserved 
+ * Salvatore Grimaldi       0622701742      s.grimaldi29@studenti.unisa.it
+ * Enrico Maria Di Mauro    0622701706      e.dimauro5@studenti.unisa.it
+ * Allegra Cuzzocrea        0622701707      a.cuzzocrea2@studenti.unisa.it
+ *
+ *
+ * Copyright (C) 2021 - All Rights Reserved
  *
  * This file is part of Contest-MPI.
  *
@@ -59,45 +59,32 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     int n;
     double time, start, end;
-    n = atoi(argv[1]);     //array length
-    range = atoi(argv[2]); //maximum acceptable integer
+    n = atoi(argv[1]);     // array length
+    range = atoi(argv[2]); // maximum acceptable integer
     file_name = argv[3];
 
     if (rank == 0)
         read_start_time = MPI_Wtime();
 
-    //parallelized initialization of the array
-    init(n, rank, n_ranks, range, file_name);
+    // parallelized initialization of the array
+    init(n, n_ranks, rank, range, file_name);
 
     if (rank == 0)
     {
         time_init = MPI_Wtime() - read_start_time;
-
-        /*Print initial array
-        for (int i = 0; i < n; i++)
-            printf("%d ", full_array[i]);
-        printf("\n\n");*/
-
         read_start_time = MPI_Wtime();
     }
 
-    //execution of the counting sort algorithm
+    // execution of the counting sort algorithm
     countingSort(n, n_ranks, rank, file_name);
 
     if (rank == 0)
     {
-
-        /*Print sorted array
-        for (int i = 0; i < n; i++)
-            printf("%d ", full_array[i]);
-        printf("\n\n");*/
-
         time_count = MPI_Wtime() - read_start_time;
         printf("%d;%f;%f\n", n_ranks, time_init, time_count);
-        //free(full_array);
     }
 
-    //readingFile(file_name, n, rank);
+    // readingFile(n, rank, file_name);
 
     MPI_Finalize();
 }

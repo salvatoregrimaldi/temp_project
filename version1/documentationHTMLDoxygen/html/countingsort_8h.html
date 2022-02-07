@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MPI Version1 Counting Sort: include/countingsort.h File Reference</title>
+<title>MPI Counting Sort - Version1: include/countingsort.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MPI Version1 Counting Sort
+   <div id="projectname">MPI Counting Sort - Version1
    </div>
   </td>
  </tr>
@@ -79,9 +79,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="countingsort_8h__dep__incl.png" border="0" usemap="#include_2countingsort_8hdep" alt=""/></div>
 <map name="include_2countingsort_8hdep" id="include_2countingsort_8hdep">
-<area shape="rect" title="This is the file .h that contains the headers of the functions that are called in the main." alt="" coords="59,5,225,32"/>
-<area shape="rect" href="countingsort_8c.html" title="This is the file .c that contains the functions that are called in the main." alt="" coords="5,80,143,107"/>
-<area shape="rect" href="main_8c.html" title="This is the file main.c, which is the main function that calls the other functions." alt="" coords="167,80,256,107"/>
+<area shape="rect" title="This is the file .h that contains the headers of the functions that are called in the main." alt="" coords="5,5,172,32"/>
+<area shape="rect" href="main_8c.html" title="This is the file main.c, which is the main function that calls the other functions." alt="" coords="44,80,133,107"/>
 </map>
 </div>
 </div>
@@ -89,19 +88,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad1eeb09a20ada2bb4a6aed5e131b5f33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#ad1eeb09a20ada2bb4a6aed5e131b5f33">init</a> (int n, int n_ranks, int rank, int range, int *full_vector)</td></tr>
-<tr class="memdesc:ad1eeb09a20ada2bb4a6aed5e131b5f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initialize randomly the array 'full_array' distributing the computation among the processes.  <a href="countingsort_8h.html#ad1eeb09a20ada2bb4a6aed5e131b5f33">More...</a><br /></td></tr>
-<tr class="separator:ad1eeb09a20ada2bb4a6aed5e131b5f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ba53b4213b9275f9d8604410db05e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a93ba53b4213b9275f9d8604410db05e4">countingSort</a> (int n, int n_ranks, int rank, int *full_vector)</td></tr>
-<tr class="memdesc:a93ba53b4213b9275f9d8604410db05e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation among the processes.  <a href="countingsort_8h.html#a93ba53b4213b9275f9d8604410db05e4">More...</a><br /></td></tr>
-<tr class="separator:a93ba53b4213b9275f9d8604410db05e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6832b5a555efcab958e6457964115f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#acc6832b5a555efcab958e6457964115f">init</a> (int, int, int, int, int *)</td></tr>
+<tr class="memdesc:acc6832b5a555efcab958e6457964115f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that initializes randomly the array 'full_array' distributing the computation among the processes.  <a href="countingsort_8h.html#acc6832b5a555efcab958e6457964115f">More...</a><br /></td></tr>
+<tr class="separator:acc6832b5a555efcab958e6457964115f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91aeee0cd85e7a94c0378ca9cb1d1d02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="countingsort_8h.html#a91aeee0cd85e7a94c0378ca9cb1d1d02">countingSort</a> (int, int, int, int *)</td></tr>
+<tr class="memdesc:a91aeee0cd85e7a94c0378ca9cb1d1d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the function that sorts the array 'full_array' using Counting Sort Algorithm and distributing the computation among the processes.  <a href="countingsort_8h.html#a91aeee0cd85e7a94c0378ca9cb1d1d02">More...</a><br /></td></tr>
+<tr class="separator:a91aeee0cd85e7a94c0378ca9cb1d1d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the file .h that contains the headers of the functions that are called in the main. </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a93ba53b4213b9275f9d8604410db05e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93ba53b4213b9275f9d8604410db05e4">&#9670;&nbsp;</a></span>countingSort()</h2>
+<a id="a91aeee0cd85e7a94c0378ca9cb1d1d02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91aeee0cd85e7a94c0378ca9cb1d1d02">&#9670;&nbsp;</a></span>countingSort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,7 +137,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation among the processes. </p>
+<p>This is the function that sorts the array 'full_array' using Counting Sort Algorithm and distributing the computation among the processes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of array elements. </td></tr>
@@ -151,8 +150,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad1eeb09a20ada2bb4a6aed5e131b5f33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1eeb09a20ada2bb4a6aed5e131b5f33">&#9670;&nbsp;</a></span>init()</h2>
+<a id="acc6832b5a555efcab958e6457964115f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6832b5a555efcab958e6457964115f">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +194,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This function initialize randomly the array 'full_array' distributing the computation among the processes. </p>
+<p>This is the function that initializes randomly the array 'full_array' distributing the computation among the processes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of array elements. </td></tr>
@@ -210,8 +209,10 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="acountingsort_8c_html_aa1114cc461efe69b5610621fcb9a79af"><div class="ttname"><a href="countingsort_8c.html#aa1114cc461efe69b5610621fcb9a79af">countingSort</a></div><div class="ttdeci">void countingSort(int n, int n_ranks, int rank, int *full_array)</div><div class="ttdoc">This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation...</div><div class="ttdef"><b>Definition:</b> countingsort.c:102</div></div>
-<div class="ttc" id="acountingsort_8c_html_a074cf162999add8e7f86f412756f9b48"><div class="ttname"><a href="countingsort_8c.html#a074cf162999add8e7f86f412756f9b48">init</a></div><div class="ttdeci">void init(int n, int n_ranks, int rank, int range, int *full_array)</div><div class="ttdoc">This function initialize randomly the array 'full_array' distributing the computation among the proce...</div><div class="ttdef"><b>Definition:</b> countingsort.c:50</div></div>
+<div class="ttc" id="acountingsort_8c_html_aa1114cc461efe69b5610621fcb9a79af"><div class="ttname"><a href="countingsort_8c.html#aa1114cc461efe69b5610621fcb9a79af">countingSort</a></div><div class="ttdeci">void countingSort(int n, int n_ranks, int rank, int *full_array)</div><div class="ttdoc">This is the function that sorts the array 'full_array' using Counting Sort Algorithm and distributing...</div><div class="ttdef"><b>Definition:</b> countingsort.c:97</div></div>
+<div class="ttc" id="acountingsort_8c_html_a074cf162999add8e7f86f412756f9b48"><div class="ttname"><a href="countingsort_8c.html#a074cf162999add8e7f86f412756f9b48">init</a></div><div class="ttdeci">void init(int n, int n_ranks, int rank, int range, int *full_array)</div><div class="ttdoc">This is the function that initializes randomly the array 'full_array' distributing the computation am...</div><div class="ttdef"><b>Definition:</b> countingsort.c:49</div></div>
+<div class="ttc" id="amain_s_8c_html_a6d70b15f4f0507e7efe26e0254b740be"><div class="ttname"><a href="main_s_8c.html#a6d70b15f4f0507e7efe26e0254b740be">countingSort</a></div><div class="ttdeci">void countingSort(int, int *)</div><div class="ttdoc">This is the function that sorts the array 'full_array' using Counting Sort Algorithm.</div><div class="ttdef"><b>Definition:</b> mainS.c:118</div></div>
+<div class="ttc" id="amain_s_8c_html_a327b8fbcae52ddf1fb2d326149595cf5"><div class="ttname"><a href="main_s_8c.html#a327b8fbcae52ddf1fb2d326149595cf5">init</a></div><div class="ttdeci">void init(int, int, int *)</div><div class="ttdoc">This is the function that initializes randomly the array 'full_array'.</div><div class="ttdef"><b>Definition:</b> mainS.c:107</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

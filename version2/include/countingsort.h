@@ -4,9 +4,9 @@
  * Lecturer: Francesco Moscato	fmoscato@unisa.it
  *
  * Group:
- * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
- * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
- * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
+ * Salvatore Grimaldi       0622701742      s.grimaldi29@studenti.unisa.it              
+ * Enrico Maria Di Mauro    0622701706      e.dimauro5@studenti.unisa.it
+ * Allegra Cuzzocrea        0622701707      a.cuzzocrea2@studenti.unisa.it
  * 
  * 
  * Copyright (C) 2021 - All Rights Reserved 
@@ -38,6 +38,6 @@
 
 void init(int, int, int, int, char *);
 void countingSort(int, int, int, char *);
-void readingFile(char *, int, int);
+void readingFile(int, int, char *);
 
 #endif

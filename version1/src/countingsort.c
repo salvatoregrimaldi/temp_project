@@ -4,9 +4,9 @@
  * Lecturer: Francesco Moscato	fmoscato@unisa.it
  *
  * Group:
- * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
- * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
- * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
+ * Salvatore Grimaldi       0622701742      s.grimaldi29@studenti.unisa.it              
+ * Enrico Maria Di Mauro    0622701706      e.dimauro5@studenti.unisa.it
+ * Allegra Cuzzocrea        0622701707      a.cuzzocrea2@studenti.unisa.it
  * 
  * 
  * Copyright (C) 2021 - All Rights Reserved 
@@ -37,10 +37,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
-#include "../include/countingsort.h"
 
 /**
- * @brief This function initialize randomly the array 'full_array' distributing the computation among the processes.
+ * @brief This is the function that initializes randomly the array 'full_array' distributing the computation among the processes.
  * @param n             number of array elements.
  * @param n_ranks       number of ranks.
  * @param rank          rank of the current process.
@@ -79,7 +78,7 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
     piece_init_array = (int *)malloc(dim * sizeof(int));
 
     for (i = 0; i < dim; i++)
-        piece_init_array[i] = rand() % range;
+        piece_init_array[i] = rand() % (range + 1);
 
     MPI_Gatherv(piece_init_array, dim, MPI_INT, full_array, recvcounts, displ, MPI_INT, 0, MPI_COMM_WORLD);
 
@@ -89,7 +88,7 @@ void init(int n, int n_ranks, int rank, int range, int *full_array)
 }
 
 /**
- * @brief This function sorts the array 'full_array' using Counting Sort Algorithm distributing the computation among the processes.
+ * @brief This is the function that sorts the array 'full_array' using Counting Sort Algorithm and distributing the computation among the processes.
  * @param n             number of array elements.
  * @param n_ranks       number of ranks.
  * @param rank          rank of the current process.

@@ -5,9 +5,9 @@
 # Lecturer: Francesco Moscato	fmoscato@unisa.it
 #
 # Group:
-# Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it              
-# Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
-# Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
+# Salvatore Grimaldi        0622701742      s.grimaldi29@studenti.unisa.it              
+# Enrico Maria Di Mauro     0622701706      e.dimauro5@studenti.unisa.it
+# Allegra Cuzzocrea         0622701707      a.cuzzocrea2@studenti.unisa.it
 # 
 # 
 # Copyright (C) 2021 - All Rights Reserved 
@@ -31,8 +31,8 @@ TIMEFORMAT='%4U;%4E;%4S;%P'
 TIMESTAMP=$(date +%F.%T)
 
 NMEASURES=20
-ARRAY_SIZE=(10000 100000 1000000 10000000) #carico
-ARRAY_MAX_NUM=(1000 100000 1000000) #num max
+ARRAY_SIZE=(1000000 10000000) #carico
+ARRAY_MAX_NUM=(1000 100000) #num max
 ARRAY_THS=(0 1 2 4 8 16)
 ARRAY_OPT=(0 1 2 3)
 

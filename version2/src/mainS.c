@@ -1,15 +1,15 @@
-/*
+/* 
  * Course: High Performance Computing 2021/2022
- *
+ * 
  * Lecturer: Francesco Moscato	fmoscato@unisa.it
  *
  * Group:
- * Salvatore Grimaldi  0622701742  s.grimaldi29@studenti.unisa.it
- * Enrico Maria Di Mauro  0622701706  e.dimauro5@studenti.unisa.it
- * Allegra Cuzzocrea  0622701707  a.cuzzocrea2@studenti.unisa.it
- *
- *
- * Copyright (C) 2021 - All Rights Reserved
+ * Salvatore Grimaldi       0622701742      s.grimaldi29@studenti.unisa.it              
+ * Enrico Maria Di Mauro    0622701706      e.dimauro5@studenti.unisa.it
+ * Allegra Cuzzocrea        0622701707      a.cuzzocrea2@studenti.unisa.it
+ * 
+ * 
+ * Copyright (C) 2021 - All Rights Reserved 
  *
  * This file is part of Contest-MPI.
  *
@@ -40,9 +40,9 @@
 #include <sys/times.h>
 #include <limits.h>
 
-void init(int n, int range, char *file_name);
-void countingSort(int n, char *file_name);
-void readingFile(char *file_name, int n);
+void init(int, int, char *);
+void countingSort(int, char *);
+void readingFile(int, char *);
 
 #define STARTTIME(id)                             \
     clock_t start_time_42_##id, end_time_42_##id; \
@@ -82,13 +82,13 @@ int main(int argc, char *argv[])
 
     ENDTIME(1, time_count);
 
-    //readingFile(file_name, n);
+    //readingFile(n, file_name);
 
     printf("1;%f;%f\n", time_init, time_count);
 }
 
 /**
- * @brief This function writes in the file 'file_name' 'n' integers.
+ * @brief This is the function that writes in the file 'file_name' 'n' integers.
  * @param n             number of array elements.
  * @param range         maximum acceptable integer.
  * @param file_name     file name.
@@ -97,14 +97,15 @@ void init(int n, int range, char *file_name)
 {
     FILE *fp;
     int app;
-    int* full_array;
+    int *full_array;
 
-    full_array = (int *)malloc(n*sizeof(int));
+    full_array = (int *)malloc(n * sizeof(int));
 
     if ((fp = fopen(file_name, "w")) == NULL)
         exit(EXIT_FAILURE);
-    
-    for (int i = 0; i < n; i++) full_array[i] = rand() % range;
+
+    for (int i = 0; i < n; i++)
+        full_array[i] = rand() % (range + 1);
 
     fwrite(full_array, sizeof(int), n, fp);
 
@@ -114,7 +115,7 @@ void init(int n, int range, char *file_name)
 }
 
 /**
- * @brief This function sorts the integers in 'file_name' using Counting Sort Algorithm.
+ * @brief This is the function that sorts the integers in 'file_name' using Counting Sort Algorithm.
  * @param n             number of array elements.
  * @param file_name     file name.
  */
@@ -129,7 +130,7 @@ void countingSort(int n, char *file_name)
 
     if ((fp = fopen(file_name, "r+")) == NULL)
         exit(EXIT_FAILURE);
-    
+
     fread(full_array, sizeof(int), n, fp);
 
     for (int i = 0; i < n; i++)
@@ -182,11 +183,11 @@ void countingSort(int n, char *file_name)
 }
 
 /**
- * @brief This function reads the integers in 'file_name' and prints them on stdout.
- * @param file_name     file name.
+ * @brief This is the function that reads the integers in 'file_name' and prints them on stdout.
  * @param n             number of array elements.
+ * @param file_name     file name.
  */
-void readingFile(char *file_name, int n)
+void readingFile(int n, char *file_name)
 {
     FILE *fp;
     int *full_array;
@@ -198,8 +199,8 @@ void readingFile(char *file_name, int n)
 
     fread(full_array, sizeof(int), n, fp);
 
-    for(int i=0; i<n; i++) printf("%d ", full_array[i]);
-
+    for (int i = 0; i < n; i++)
+        printf("%d ", full_array[i]);
 
     printf("\n");
 }
